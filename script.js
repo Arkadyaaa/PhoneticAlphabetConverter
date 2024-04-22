@@ -29,3 +29,31 @@ function convertToNATO() {
     // Set output text to the output text input field
     document.getElementById('output-text').value = outputText.trim(); // Trim to remove trailing newline
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Find the form element by its ID
+    const form = document.getElementById('conversion-form');
+
+    // Add event listener for form submission
+    form.addEventListener('submit', function(event) {
+        // Prevent default form submission behavior
+        event.preventDefault();
+        
+        // Call the convertToNATO function when the form is submitted (either by button click or Enter key press)
+        convertToNATO();
+    });
+
+    // Optionally, you can also listen for key presses in the input field
+    const inputField = document.getElementById('input-text');
+    inputField.addEventListener('keypress', function(event) {
+        // Check if the pressed key is Enter (key code 13)
+        if (event.key === 'Enter') {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            
+            // Call the convertToNATO function
+            convertToNATO();
+        }
+    });
+});
+
